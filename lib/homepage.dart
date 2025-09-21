@@ -14,7 +14,7 @@ class Homepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: ShopeName(fontSize: 30),
+        title: ShopeName(fontSize: 30, color: Colors.black),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         actions: [

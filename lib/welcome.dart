@@ -18,7 +18,11 @@ class WelcomePage extends StatelessWidget {
               top: 130,
               child: Lottie.asset('asset/welcome.json', height: 400),
             ),
-            Positioned(top: 120, left: 20, child: ShopeName(fontSize: 60)),
+            Positioned(
+              top: 120,
+              left: 20,
+              child: ShopeName(fontSize: 60, color: Colors.black),
+            ),
             Positioned(
               bottom: 190,
               child: Text(

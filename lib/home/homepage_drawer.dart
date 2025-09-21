@@ -24,7 +24,7 @@ class HomepageDrawer extends StatelessWidget {
                     height: 120,
                     fit: BoxFit.cover,
                   ),
-                  ShopeName(fontSize: 25),
+                  ShopeName(fontSize: 25, color: Colors.white),
                 ],
               ),
             ),

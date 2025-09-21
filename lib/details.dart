@@ -29,17 +29,6 @@ class _DetailsPageState extends State<DetailsPage> {
     });
   }
 
-  void addCart() {
-    Provider.of<CartProvider>(
-      context,
-      listen: false,
-    ).addCart(widget.data, itemCount);
-    print('cart e add hoi');
-    // if (itemCount > 0) {
-    //   return la;
-    // }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -146,75 +135,81 @@ class _DetailsPageState extends State<DetailsPage> {
                   ],
                 ),
                 SizedBox(height: 15),
-                ElevatedButton(
-                  onPressed: () {
-                    addCart();
-                    // if (itemCount == 0) {
-                    //   ScaffoldMessenger.of(context).showSnackBar(
-                    //     SnackBar(
-                    //       content: Text('Please add first'),
-                    //       duration: Duration(seconds: 1),
-                    //     ),
-                    //   );
-                    // } else {
-                    //   context.read<CartProvider>().addCart(
-                    //     widget.data,
-                    //     itemCount,
-                    //   );
-                    //   Navigator.pop(context);
-                    //   // showDialog(
-                    //   //   barrierDismissible: false,
-                    //   //   context: context,
-                    //   //   builder: (ctx) => AlertDialog(
-                    //   //     contentPadding: EdgeInsets.all(20),
-                    //   //     backgroundColor: color,
-                    //   //     title: Text(
-                    //   //       widget.data['name']!,
-                    //   //       style: text(
-                    //   //         fontSize: 22,
-                    //   //         fontWeight: FontWeight.w600,
-                    //   //         color: Colors.white,
-                    //   //       ),
-                    //   //     ),
-                    //   //     content: Text(
-                    //   //       'Successfully added to cart',
-                    //   //       style: TextStyle(
-                    //   //         fontWeight: FontWeight.w400,
-                    //   //         fontSize: 18,
-                    //   //         color: Colors.white,
-                    //   //       ),
-                    //   //     ),
-                    //   //     actions: [
-                    //   //       IconButton(
-                    //   //         onPressed: () {
-                    //   //           Navigator.pop(ctx);
-                    //   //         },
-                    //   //         icon: Icon(
-                    //   //           Icons.done,
-                    //   //           color: Colors.white,
-                    //   //           size: 20,
-                    //   //         ),
-                    //   //       ),
-                    //   //     ],
-                    //   //   ),
-                    //   // );
-                    // }
+                Builder(
+                  builder: (ctx) {
+                    return ElevatedButton(
+                      onPressed: () {
+                        if (itemCount == 0) {
+                          ScaffoldMessenger.of(ctx).showSnackBar(
+                            SnackBar(
+                              content: Text('Please add first'),
+                              duration: Duration(seconds: 1),
+                            ),
+                          );
+                        } else {
+                          ctx.read<CartProvider>().addCart(
+                            widget.data,
+                            itemCount,
+                          );
+                          showDialog(
+                            barrierDismissible: false,
+                            context: ctx,
+                            builder: (dialogContext) => AlertDialog(
+                              contentPadding: EdgeInsets.all(20),
+                              backgroundColor: color,
+                              title: Text(
+                                widget.data['name']!,
+                                style: text(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              content: Text(
+                                'Successfully added to cart',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              actions: [
+                                IconButton(
+                                  onPressed: () {
+                                    Navigator.pop(dialogContext);
+                                    Navigator.pop(context);
+                                  },
+                                  icon: Icon(
+                                    Icons.done,
+                                    color: Colors.white,
+                                    size: 20,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        }
+                      },
+                      style: ElevatedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          vertical: 15,
+                          horizontal: 75,
+                        ),
+                        backgroundColor: buttonColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                      ),
+                      child: Text(
+                        'Add to cart',
+                        style: text(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w400,
+                          color: Colors.white,
+                        ),
+                      ),
+                    );
                   },
-                  style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 75),
-                    backgroundColor: buttonColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                  child: Text(
-                    'Add to cart',
-                    style: text(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white,
-                    ),
-                  ),
                 ),
               ],
             ),

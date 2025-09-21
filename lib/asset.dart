@@ -8,7 +8,7 @@ TextStyle text({
   required FontWeight fontWeight,
   Color color = Colors.black87,
 }) {
-  return GoogleFonts.dmSerifDisplay(
+  return GoogleFonts.roboto(
     fontSize: fontSize,
     fontWeight: fontWeight,
     color: color,
@@ -17,7 +17,8 @@ TextStyle text({
 
 class ShopeName extends StatelessWidget {
   double fontSize;
-  ShopeName({super.key, required this.fontSize});
+  Color color = Colors.black87;
+  ShopeName({super.key, required this.fontSize, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class ShopeName extends StatelessWidget {
       style: GoogleFonts.bungeeInline(
         fontSize: fontSize,
         fontWeight: FontWeight.w800,
-        color: Colors.black87,
+        color: color,
       ),
     );
   }
