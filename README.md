@@ -4,8 +4,8 @@ A new Flutter project.
 
 ## Getting Started
 [PIZZA BAR][screenshot]
-[image]('https://github.com/likhonahamedla/Pizza-Bar-app/blob/d9783406e22c4bf24ac781f82beafe8057d51275/PizzaBar1.png'),
-[image]('https://github.com/likhonahamedla/Pizza-Bar-app/blob/d9783406e22c4bf24ac781f82beafe8057d51275/PizzaBar2.png')
+![image](https://github.com/likhonahamedla/Pizza-Bar-app/blob/d9783406e22c4bf24ac781f82beafe8057d51275/PizzaBar1.png),
+![image](https://github.com/likhonahamedla/Pizza-Bar-app/blob/d9783406e22c4bf24ac781f82beafe8057d51275/PizzaBar2.png)
 
 This project is a starting point for a Flutter application.
 
